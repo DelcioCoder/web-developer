@@ -1,0 +1,16 @@
+{% extends 'app_registro/base.html' %}
+
+
+{% block content %}
+<p>Topicos:</p>
+<ul>
+    {% for topico in topicos %}
+    <li>
+        <p><a href="{% url 'app_registro:topico' topico.id %}">{{ topico }}</a></p>
+    </li>
+    {% empty %}
+    <li>Nenhum topico encontrado!</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'app_registro:novo_topico' %}">Add novo topico</a>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'app_registro/base.html' %}
+
+
+{% block content %}
+<p>Topico:{{ topico }}</p>
+<form action="{% url 'app_registro:nova_entrada' topico.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Adicionar</button>
+</form>
+{% endblock content %}

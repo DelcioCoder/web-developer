@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Registro{% endblock title %}</title>
+</head>
+<body>
+    <h1><a href="{% url 'app_registro:index' %}">Registro aprendizado - <a href="{% url 'app_registro:topicos' %}">ver topicos</a></a></h1>
+    <p>
+        {% if user.is_authenticated %}
+        ola, {{ user.username }}
+        <a href="{% url 'app_usuarios:logout' %}">Fazer logout</a>
+        {% else %}
+        <a href="{% url 'app_usuarios:registro' %}">Fazer o registro</a>
+        <a href="{% url 'app_usuarios:login' %}">faca o login</a>
+        {% endif %}
+    </p>
+    {% block content %}
+    {% endblock content %}
+    
+</body>
+</html>

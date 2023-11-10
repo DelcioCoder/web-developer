@@ -1,0 +1,11 @@
+{% extends 'app_registro/base.html' %}
+
+
+{% block content %}
+<p><a href="{% url 'app_registro:topico' topico.id %}">{{ topico }}</a></p>
+<form action="{% url 'app_registro:editar_entrada' entrada.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Editar</button>
+</form>
+{% endblock content %}
